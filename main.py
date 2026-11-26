@@ -1,7 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Optional
-import uvicorn
 
 app = FastAPI(title="User Service", version="1.0.0")
 
@@ -66,6 +65,3 @@ def delete_user(user_id: int):
     deleted_user = users_db.pop(user_id)
     return {"message": "User deleted", "user": deleted_user}
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8001)
-    
